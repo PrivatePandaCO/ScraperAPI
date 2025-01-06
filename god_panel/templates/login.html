@@ -1,0 +1,30 @@
+<!-- god_panel/templates/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>God Panel - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Login</h2>
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="form-group">
+                <label for="uuid">UUID:</label>
+                <input type="text" id="uuid" name="uuid" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

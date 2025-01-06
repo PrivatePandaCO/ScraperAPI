@@ -1,0 +1,7 @@
+{
+  "license_server": {
+    "ip": "license_server",
+    "port": 8001,
+    "database_url": "sqlite:///./licenses.db"
+  }
+}

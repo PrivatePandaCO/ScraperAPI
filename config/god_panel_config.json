@@ -1,0 +1,27 @@
+{
+  "god_panel": {
+    "ip": "0.0.0.0",
+    "port": 8004,
+    "admin_uuid": "your-configured-uuid"
+  },
+  "public_server": {
+    "ip": "public_server",
+    "port": 8000
+  },
+  "license_server": {
+    "ip": "license_server",
+    "port": 8001
+  },
+  "scraper_servers": [
+    {
+      "name": "scraper_server_1",
+      "ip": "scraper_server_1",
+      "port": 8002
+    },
+    {
+      "name": "scraper_server_2",
+      "ip": "scraper_server_2",
+      "port": 8003
+    }
+  ]
+}

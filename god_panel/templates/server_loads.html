@@ -1,0 +1,27 @@
+<!-- god_panel/templates/server_loads.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>God Panel - Server Loads</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Server Loads</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Server Name</th>
+                    <th>Load (%)</th>
+                </tr>
+            </thead>
+            <tbody id="server-loads-table-body">
+                <!-- Dynamic content populated by JavaScript -->
+            </tbody>
+        </table>
+        <a href="{{ url_for('index') }}">Back to Dashboard</a>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

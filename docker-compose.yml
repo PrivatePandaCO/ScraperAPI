@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  license_server:
+    build:
+      context: ./license_server
+    volumes:
+      - ./config/license_server_config.json:/app/config.json
+      - license_data:/app/licenses.db
+    ports:
+      - "8001:8001"
+    restart: always
+
+  public_server:
+    build:
+      context: ./public_server
+    volumes:
+      - ./config/public_server_config.json:/app/config.json
+    ports:
+      - "8000:8000"
+    depends_on:
+      - license_server
+    restart: always
+
+  god_panel:
+    build:
+      context: ./god_panel
+    volumes:
+      - ./config/god_panel_config.json:/app/config.json
+      - ./god_panel/static:/app/static
+      - ./god_panel/templates:/app/templates
+    ports:
+      - "8004:8004"
+    depends_on:
+      - public_server
+      - license_server
+    restart: always
+
+  scraper_server_1:
+    build:
+      context: ./scraper_server_1
+    volumes:
+      - ./config/scraper_server_1_config.json:/app/config.json
+    ports:
+      - "8002:8002"
+    depends_on:
+      - public_server
+      - license_server
+    restart: always
+
+  scraper_server_2:
+    build:
+      context: ./scraper_server_2
+    volumes:
+      - ./config/scraper_server_2_config.json:/app/config.json
+    ports:
+      - "8003:8003"
+    depends_on:
+      - public_server
+      - license_server
+    restart: always
+
+volumes:
+  license_data:

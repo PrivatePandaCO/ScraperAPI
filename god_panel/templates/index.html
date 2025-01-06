@@ -1,0 +1,34 @@
+<!-- god_panel/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>God Panel - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>God Panel Dashboard</h2>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('licenses') }}">Manage Licenses</a></li>
+                <li><a href="{{ url_for('server_loads') }}">View Server Loads</a></li>
+                <li>
+                    <button id="restart-services-btn">Restart Services</button>
+                </li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

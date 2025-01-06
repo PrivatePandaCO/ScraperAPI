@@ -1,0 +1,24 @@
+{
+  "license_server": {
+    "ip": "license_server",
+    "port": 8001
+  },
+  "scraper_servers": [
+    {
+      "name": "scraper_server_1",
+      "ip": "scraper_server_1",
+      "port": 8002,
+      "scrapers": ["scraper_a", "scraper_b"]
+    },
+    {
+      "name": "scraper_server_2",
+      "ip": "scraper_server_2",
+      "port": 8003,
+      "scrapers": ["scraper_c"]
+    }
+  ],
+  "public_server": {
+    "ip": "0.0.0.0",
+    "port": 8000
+  }
+}

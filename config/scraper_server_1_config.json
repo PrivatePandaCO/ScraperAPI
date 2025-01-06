@@ -1,0 +1,12 @@
+{
+  "scraper_server": {
+    "name": "scraper_server_1",
+    "ip": "scraper_server_1",
+    "port": 8002,
+    "allowed_scrapers": ["scraper_a", "scraper_b"],
+    "public_server": {
+      "ip": "public_server",
+      "port": 8000
+    }
+  }
+}
